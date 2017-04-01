@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} Emre AKTÜRK {% endblock %}
+{% block description %} Computer Engineering Student, Junior Developer {% endblock %}
+{% block keywords %}About Page{% endblock %}
+
+{% block  content %}
+<div class="about container">
+  <div class="row">
+        <div class="col-md-12 col-lg-12">
+            
+            <p><br><img src="{{about_image.url}}" align="right">
+                 {{about_text |safe}}
+                
+            <br></p> 
+                  {{about_social |safe}}
+            <p>
+            </p>
+        </div>    
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 45px;
+  text-align:center;
+  font-family: 'Josefin Sans', serif;
+  background-color: #DFD9D9;
+  color: #772819;
+  font-size: 16px;
+}
+@media screen and (max-width:350px) {
+    .footer {
+        height: 62px;
+    }
+}
+
+.footer a {
+    color: #772819;
+}

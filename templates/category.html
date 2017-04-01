@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} {{category.category_name}} {% endblock %}
+{% block description %}{{category.category_description}}{% endblock %}
+{% block keywords %}{{category.category_keywords}}{% endblock %}
+
+{% block content %}
+
+{{category.category_edit |safe}}
+
+{% endblock %}

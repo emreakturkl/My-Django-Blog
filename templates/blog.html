@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} Emre AKTÜRK {% endblock %}
+{% block description %} Computer Engineering Student, Junior Developer {% endblock %}
+{% block keywords %}Blog Page{% endblock %}
+{% block content %}
+
+{% for i in object_list %}
+<div class="article container">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+            <a href="{% url 'post' slug=i.slug %}"><img src="{{ i.image.url }}" style="float: right;"></a>
+            
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+            <a href="{% url 'post' slug=i.slug %}">{{ i.title }}</a>
+            <p>{{ i.creation_date }}</p>
+
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="paginators">
+                <span class="step-links">
+                    {% if object_list.has_previous %}
+                        <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}">&laquo;</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ object_list.number }} / {{ object_list.paginator.num_pages }}
+                    </span>
+
+                    {% if object_list.has_next %}
+                        <a href="?{{ page_request_var }}={{ object_list.next_page_number }}">&raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+{% endblock %}

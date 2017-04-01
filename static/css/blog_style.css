@@ -1,0 +1,31 @@
+.article {
+    padding-top: 20px;
+    font-family: 'Josefin Sans', serif;
+    font-size: 20px;
+}
+.article p {
+    font-size: 15px;
+}
+
+.article img {
+    width: 80px;
+    height: 80px;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    border-radius: 50%;
+
+}
+.article img:hover {
+    width: 90px;
+    height: 90px;
+}
+
+.paginators{
+    font-family: 'Josefin Sans', serif;
+    font-size: 18px;
+}
+
+.paginators .step-links{
+    float: right; 
+    padding-top: 12px;
+}
