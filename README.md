@@ -6,3 +6,6 @@
 * pip install pillow
 * pip install  django-simple-captcha
 
+#
+
+http://ea.pythonanywhere.com/
