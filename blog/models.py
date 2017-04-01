@@ -1,8 +1,5 @@
 #-*- coding: utf-8 -*-
 # Create your models here.
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 from django.db import models
 from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
