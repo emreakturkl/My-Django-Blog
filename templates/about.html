@@ -9,13 +9,21 @@
   <div class="row">
         <div class="col-md-12 col-lg-12">
             
-            <p><br><img src="{{about_image.url}}" align="right">
-                 {{about_text |safe}}
-                
-            <br></p> 
-                  {{about_social |safe}}
+            <p><br>
+            <img src="
+            {% if about_image %} 
+              {{about_image.url}}
+            {% else %} 
+              {% static 'img/avatar.png' %} 
+            {% endif %}" align="right">
+                 {{about_text |safe}}         
+              <br>
+            </p>      
+              <br>
             <p>
+              {{about_social |safe}}
             </p>
+              <br>
         </div>    
     </div>
 </div>

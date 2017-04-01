@@ -25,6 +25,7 @@ def home(request):
     footer_text = About.objects.all()[0].footer_text
     footer_text_url = About.objects.all()[0].footer_text_url
     footer_image   = About.objects.all()[0].footer_image
+    favicon   = About.objects.all()[0].favicon
 
     return render_to_response('home.html', locals())
 
@@ -42,7 +43,9 @@ def about(request):
 
     footer_text = About.objects.all()[0].footer_text
     footer_text_url = About.objects.all()[0].footer_text_url
-    footer_image   = About.objects.all()[0].footer_image 
+    footer_image   = About.objects.all()[0].footer_image
+    favicon   = About.objects.all()[0].favicon
+
     return render_to_response('about.html', locals())
 
 def contact(request):
@@ -56,6 +59,7 @@ def contact(request):
     footer_text = About.objects.all()[0].footer_text
     footer_text_url = About.objects.all()[0].footer_text_url
     footer_image   = About.objects.all()[0].footer_image
+    favicon   = About.objects.all()[0].favicon
 
     return render_to_response('contact.html', locals())
 
@@ -70,6 +74,7 @@ def category(request, category_url):
     footer_text = About.objects.all()[0].footer_text
     footer_text_url = About.objects.all()[0].footer_text_url
     footer_image   = About.objects.all()[0].footer_image
+    favicon   = About.objects.all()[0].favicon
 
     category = get_object_or_404(Category, category_url=category_url)
     return render_to_response('category.html', locals())
@@ -85,7 +90,8 @@ def post_list(request):
 
     footer_text = About.objects.all()[0].footer_text
     footer_text_url = About.objects.all()[0].footer_text_url
-    footer_image   = About.objects.all()[0].footer_image  
+    footer_image   = About.objects.all()[0].footer_image
+    favicon   = About.objects.all()[0].favicon  
 
     object_list = Post.objects.order_by('-creation_date')
     paginator = Paginator(object_list , 3)
@@ -116,7 +122,8 @@ def post_details(request, slug):
 
     footer_text = About.objects.all()[0].footer_text
     footer_text_url = About.objects.all()[0].footer_text_url
-    footer_image   = About.objects.all()[0].footer_image  
+    footer_image   = About.objects.all()[0].footer_image
+    favicon   = About.objects.all()[0].favicon  
 
     if request.method == "POST":
         comment_form = CommentForm(request.POST)

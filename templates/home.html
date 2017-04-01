@@ -9,7 +9,13 @@
 <div class="content container">
   <div class="row">
   	<div class="col-md-6 col-lg-6">
-  		<img src="{{ home_image.url }}"><h2>{{home_title}}<br><br></h2>
+  		<img src="
+      {% if home_image %} 
+        {{ home_image.url }}
+      {% else %} 
+        {% static 'img/avatar.png' %} 
+      {% endif %}">
+      <h2>{{home_title}}<br><br></h2>
 		<p>{{home_text}}</p>
   	</div>
   	<div class="col-md-6 col-lg-6">

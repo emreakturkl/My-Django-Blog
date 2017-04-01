@@ -1,5 +1,8 @@
 #-*- coding: utf-8 -*-
 # Create your models here.
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 from django.db import models
 from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -87,6 +90,7 @@ class About(models.Model):
     footer_text   = models.CharField(max_length=200, blank=True, null=True, verbose_name="Footer Yazisi")
     footer_text_url = models.CharField(max_length=200, blank=True, null=True, verbose_name="Footer Url")
     footer_image = models.ImageField(blank=True, null=True, verbose_name="Footer Resmi")
+    favicon = models.ImageField(blank=True, null=True, verbose_name="Favicon Resmi")
 
     def __unicode__(self):
         return '%s' %("Website Settings")
