@@ -1,6 +1,6 @@
 # Basic Django Blog
 
-Requirements
+# Requirements
 
 * pip install django-ckeditor
 * pip install pillow
