@@ -16,7 +16,7 @@ python manage.py migrate
 ```
 
 ```python
-python manage.py makemigrations blog
+python manage.py makemigrations blog && python manage.py migrate
 ```
 ```python
 python manage.py createsuperuser
