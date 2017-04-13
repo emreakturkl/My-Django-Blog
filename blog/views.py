@@ -131,7 +131,7 @@ def post_details(request, slug):
             comment = comment_form.save(commit=False)
             comment.slug = slug
             comment.save()
-            return redirect('/%s'%slug)
+            return redirect('/blog/%s'%slug)
     else:
         comment_form = CommentForm()
 
