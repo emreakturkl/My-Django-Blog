@@ -1,0 +1,10 @@
+{% load staticfiles %}
+
+<footer class="footer">
+    <div class="container">
+        <p><a href="{{footer_text_url}}">{{footer_text |safe}}</a>
+            <a href="{% url 'home' %}">
+                <img src="{%if footer_image %}{{footer_image.url}}{% endif %}" style="vertical-align:middle" width="40px" height="40x"></a>
+        </p>
+    </div>
+</footer>

@@ -1,30 +1,21 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
-{% block title %} Emre AKTÜRK {% endblock %}
-{% block description %} Computer Engineering Student, Junior Developer {% endblock %}
-{% block keywords %}Home Page{% endblock %}
-{% block content %}
+{% extends 'base.html' %} {% load staticfiles %} {% block title %} Emre AKTÜRK {% endblock %} {% block description %} Computer Engineering Student, Junior Developer {% endblock %} {% block keywords %}Home Page{% endblock %} {% block content %}
 
 
 <div class="content container">
-  <div class="row">
-  	<div class="col-md-6 col-lg-6">
-  		<img src="
-      {% if home_image %} 
-        {{ home_image.url }}
-      {% else %} 
-        {% static 'img/avatar.png' %} 
-      {% endif %}">
-      <h2>{{home_title}}<br><br></h2>
-		<p>{{home_text}}</p>
-  	</div>
-  	<div class="col-md-6 col-lg-6">
-  		<div class="twitter">
-			{{home_twitter |safe}}
-		</div>
-  	</div>
-   
-  </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-6">
+
+            <img src="{% if home_image %}{{ home_image.url }}{% endif %}">
+            <h2>{{home_title}}<br><br></h2>
+            <p>{{home_text}}</p>
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <div class="twitter">
+                {{home_twitter |safe}}
+            </div>
+        </div>
+
+    </div>
 </div>
 
 

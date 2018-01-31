@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block title %} {{yazi.title}} {% endblock %} {% block keywords %}{{ yazi.keywords }}{% endblock %} {% block description %}{{ yazi.description }}{% endblock %} {% block content%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-11 col-lg-offset-1">
+            <br>
+            <p style="font-size: 30px">{{yazi.title |safe}}
+                <p>
+                    <br>{{yazi.article | safe}}<br>
+
+        </div>
+    </div>
+</div><br> {% include 'blog/comment_form.html'%}
+
+
+<br>
+<div class="container">
+    <div class=" row ">
+        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="width:100%">
+            <h3>Yorumlar:</h3><br>
+        </div>
+        {% for i in comments %}
+        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="width:100%">
+            <h4>{{ i.name }} | <small>{{ i.created_date|timesince }} önce </small></h4>
+            <p>{{ i.comment|linebreaks }}</p>
+            <br></div> {% endfor %}
+    </div>
+</div><br>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="paginators">
+                <span class="step-links ">
+                    {% if comments.has_previous %}
+                        <a href="?{{ page_request_var }}={{ comments.previous_page_number }} ">&laquo;</a>
+                    {% endif %}
+    
+                    <span class="current ">
+                        Page {{ comments.number }} / {{ comments.paginator.num_pages }}
+                    </span> {% if comments.has_next %}
+                <a href="?{{ page_request_var }}={{ comments.next_page_number }} ">&raquo;</a> {% endif %}
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br> {% endblock %}

@@ -24,6 +24,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['']
 
+SECRET_KEY = "A"
+
 #Info
 ADMINS = ('Emre AKTÜRK', 'mail@emreakturk.com')
 
@@ -38,9 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
 
-    'ckeditor_uploader',
-    'ckeditor',
     'PIL',
+    'crispy_forms',
+    'django_cleanup',
+    'ckeditor',
     'captcha',
 ]
 
@@ -131,11 +134,14 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads/')
 MEDIA_URL = "/media/"
 
+CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'js/jquery.min.js')
 CKEDITOR_UPLOAD_PATH = 'uploads/'
-
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'None',
         
     },
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+

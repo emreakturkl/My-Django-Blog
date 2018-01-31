@@ -1,10 +1,4 @@
-{% extends 'base.html' %}
-{% block title %} Emre AKTÜRK {% endblock %}
-{% block description %} Computer Engineering Student, Junior Developer {% endblock %}
-{% block keywords %}Blog Page{% endblock %}
-{% block content %}
-
-{% for i in object_list %}
+{% extends 'base.html' %} {% block title %} Emre AKTÜRK {% endblock %} {% block description %} Computer Engineering Student, Junior Developer {% endblock %} {% block keywords %}Blog Page{% endblock %} {% block content %} {% for i in object_list %}
 <div class="article container">
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -14,7 +8,7 @@
                 {%if i.image %}
            		    {{ i.image.url }}
                 {% endif %}" style="float: right;"></a>
-            
+
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
@@ -38,17 +32,13 @@
 
                     <span class="current">
                         Page {{ object_list.number }} / {{ object_list.paginator.num_pages }}
-                    </span>
-
-                    {% if object_list.has_next %}
-                        <a href="?{{ page_request_var }}={{ object_list.next_page_number }}">&raquo;</a>
-                    {% endif %}
+                    </span> {% if object_list.has_next %}
+                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}">&raquo;</a> {% endif %}
                 </span>
             </div>
         </div>
-        
+
     </div>
-    
 </div>
 
 

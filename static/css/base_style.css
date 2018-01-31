@@ -1,129 +1,182 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,
-address,big,cite,code,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,
-center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td
-	{
-		margin:0;
-		padding:0;
-		border:0;
-		outline:0;
-		list-style:none;
-		list-style-type:none;
-		text-decoration:none;
-		outline: none;
-		overflow-x: hidden; 
-
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    list-style: none;
+    list-style-type: none;
+    text-decoration: none;
+    outline: none;
+    overflow-x: hidden;
 }
 
-html,body
-{
-  height: auto;
-  width: auto;
-  margin: 0 auto;
-  padding: 0 auto;
-
+html,
+body {
+    height: auto;
+    width: auto;
+    margin: 0 auto;
+    padding: 0 auto;
 }
 
 .header {
-	width: auto;
-	background-color: #DFD9D9;
-
-}
-.header h1 {
-	padding-top: 25px;
-	font-size: 50px;
-	color: #716869;
-    font-family: 'VT323', monospace;
+    width: 100%;
+    background-color: #DFD9D9;
 }
 
 .header .social {
-	padding-top: 35px;
-	margin-right: 35px; 
-	float: right;
+    padding-top: 35px;
+    margin-right: 35px;
+    float: right;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
     color: black;
     text-decoration: none;
 }
 
-a:active, a:hover {
+a:active,
+a:hover {
     color: grey;
     text-decoration: none;
 }
 
-	
 .header .social img {
-	width: 35px;
-	height: 35px;
-	display: inline;
-	height: auto;
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+    width: 35px;
+    height: 35px;
+    display: inline;
+    height: auto;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
 }
+
 .header .social img:hover {
-	width: 40px;
+    width: 40px;
 }
 
 .menu {
-	width: auto;	
-	height: 70px;
-	background-color: #DFD9D9;
-	color: black;
-	font-family: 'Indie Flower', cursive;
-	font-size: 20px;
-	
-
+    width: auto;
+    height: 70px;
+    background-color: #DFD9D9;
+    color: black;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
 }
+
 .menu ul li {
-	float: left;
+    float: left;
     display: inline;
     padding: 15px;
     padding-top: 0px;
 }
+
 .menu ul li:hover {
-	color: #716869;
+    color: #716869;
 }
 
-.content{
-	margin-top: 20px;
-	text-align:center;
-	font-family: 'Josefin Slab', serif;
+.content {
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
     font-size: 20px;
 }
-.content img
-{
-	border-radius: 50%;
+
+.content img {
+    border-radius: 50%;
     width: 130px;
-	height: 140px;
+    height: 140px;
 }
 
 .contact {
-	padding-top: 20px; 
+    padding-top: 20px;
     text-align: center;
     font-family: 'Josefin Sans', serif;
     font-size: 20px;
 }
-.about {
-    margin-top: 20px;   
-    font-family: 'EB Garamond', serif;
-    font-size: 18px;   
 
+.about {
+    margin-top: 20px;
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
 }
-.about img{
+
+.about img {
     width: 160px;
     height: 152px;
     border-radius: 50%;
-    border: 1px solid black;
 }
 
-.about a{
-	color: #772819;
+.about a {
+    color: #772819;
 }
 
-
-.header h1{
-    width: 30em;
-    animation: type 3.3s steps(60, end);
+.header h1 {
+    width: 20em;
+    padding-top: 25px;
+    font-size: 50px;
+    font-family: 'VT323', monospace;
+    color: #716869;
+    animation: type 3.3s steps(80, end);
 }
 
 .header span {
@@ -145,16 +198,14 @@ a:active, a:hover {
 @media screen and (max-width:500px) {
     .header h1 {
         padding-top: 40px;
-        
         font-size: 35px;
     }
     .header .social img {
-	width: 30px;
-	height: 30px;
-
+        width: 30px;
+        height: 30px;
     }
     .header .social img:hover {
-    	width: 35px;
-    	height: 35px;
+        width: 35px;
+        height: 35px;
     }
 }

@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<div class="header">
+    <div class="row">
+        <div class="col-xs-5 col-sm-7 col-md-7 col-lg-7 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 ">
+            <h1>{{header_title | safe}}<span>|</span></h1>
+        </div>
+        <div class=" col-xs-6 col-sm-4 col-md-4 col-lg-4 ">
+            <div class="social ">
+                <a href="{% url 'contact' %} "><img src="{% static 'img/mail.png' %} "></a>
+                <a href="{{header_twitter}} "><img src="{% static 'img/twitter.png' %} "></a>
+                <a href="{{header_linkedin}} "><img src="{% static 'img/linkedin.png' %} "></a>
+                <a href="{{header_github}} "><img src="{% static 'img/github.png' %} "></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="menu ">
+    <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 ">
+        <ul>
+            <li><a href="{% url 'home' %} ">Anasayfa /</a></li>
+            <li><a href="{% url 'about' %} ">Hakkımda /</a></li>
+            <li><a href="{% url 'blog' %} ">Blog /</a></li>
+            {% for i in categories %}
+            <li><a href="{% url 'category' category_url=i.category_url %} ">{{ i.category_name }} /</a></li>
+            {% endfor%}
+
+        </ul>
+    </div>
+</div><br>

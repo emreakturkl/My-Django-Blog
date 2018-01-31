@@ -1,99 +1,114 @@
-#-*- coding: utf-8 -*-
-from django.shortcuts import render_to_response, get_object_or_404,render,HttpResponse
 from .models import *
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import CommentForm
-from django.views import View
-from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import redirect
-# Create your views here.
+from django.shortcuts import render_to_response, get_object_or_404, render, redirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
 
+def home(request):  
+    try:
+        categories = Category.objects.all()
+        header_title = About.objects.all()[0].header_title
+        header_twitter = About.objects.all()[0].header_twitter
+        header_linkedin = About.objects.all()[0].header_linkedin
+        header_github = About.objects.all()[0].header_github
 
-def home(request):
+        home_title = About.objects.all()[0].home_title
+        home_image = About.objects.all()[0].home_image
+        home_text = About.objects.all()[0].home_text
+        home_twitter = About.objects.all()[0].home_twitter
 
-    categories = Category.objects.all()
-    header_title = About.objects.all()[0].header_title
-    header_twitter = About.objects.all()[0].header_twitter
-    header_linkedin = About.objects.all()[0].header_linkedin
-    header_github = About.objects.all()[0].header_github
+        footer_text = About.objects.all()[0].footer_text
+        footer_text_url = About.objects.all()[0].footer_text_url
+        footer_image   = About.objects.all()[0].footer_image
+        favicon = About.objects.all()[0].favicon
 
-    home_title = About.objects.all()[0].home_title
-    home_image = About.objects.all()[0].home_image
-    home_text = About.objects.all()[0].home_text
-    home_twitter = About.objects.all()[0].home_twitter
-
-    footer_text = About.objects.all()[0].footer_text
-    footer_text_url = About.objects.all()[0].footer_text_url
-    footer_image   = About.objects.all()[0].footer_image
-    favicon   = About.objects.all()[0].favicon
-
-    return render_to_response('home.html', locals())
+    except IndexError:
+        pass
+    
+    return render_to_response('home.html',locals())
 
 def about(request):
-    categories = Category.objects.all()
-    header_title = About.objects.all()[0].header_title
-    header_twitter = About.objects.all()[0].header_twitter
-    header_linkedin = About.objects.all()[0].header_linkedin
-    header_github = About.objects.all()[0].header_github
+    try:
+        categories = Category.objects.all()
+        header_title = About.objects.all()[0].header_title
+        header_twitter = About.objects.all()[0].header_twitter
+        header_linkedin = About.objects.all()[0].header_linkedin
+        header_github = About.objects.all()[0].header_github
 
 
-    about_image = About.objects.all()[0].about_image
-    about_text = About.objects.all()[0].about_text
-    about_social = About.objects.all()[0].about_social
+        about_image = About.objects.all()[0].about_image
+        about_text = About.objects.all()[0].about_text
+        about_social = About.objects.all()[0].about_social
 
-    footer_text = About.objects.all()[0].footer_text
-    footer_text_url = About.objects.all()[0].footer_text_url
-    footer_image   = About.objects.all()[0].footer_image
-    favicon   = About.objects.all()[0].favicon
+        footer_text = About.objects.all()[0].footer_text
+        footer_text_url = About.objects.all()[0].footer_text_url
+        footer_image   = About.objects.all()[0].footer_image
+        favicon = About.objects.all()[0].favicon
+
+    except IndexError:
+        pass
 
     return render_to_response('about.html', locals())
 
 def contact(request):
-    categories = Category.objects.all()
-    header_title = About.objects.all()[0].header_title  
-    header_contact = About.objects.all()[0].header_contact
-    header_twitter = About.objects.all()[0].header_twitter
-    header_linkedin = About.objects.all()[0].header_linkedin
-    header_github = About.objects.all()[0].header_github
+    try:
+        categories = Category.objects.all()
+        header_title = About.objects.all()[0].header_title  
+        header_contact = About.objects.all()[0].header_contact
+        header_twitter = About.objects.all()[0].header_twitter
+        header_linkedin = About.objects.all()[0].header_linkedin
+        header_github = About.objects.all()[0].header_github
 
-    footer_text = About.objects.all()[0].footer_text
-    footer_text_url = About.objects.all()[0].footer_text_url
-    footer_image   = About.objects.all()[0].footer_image
-    favicon   = About.objects.all()[0].favicon
+        footer_text = About.objects.all()[0].footer_text
+        footer_text_url = About.objects.all()[0].footer_text_url
+        footer_image   = About.objects.all()[0].footer_image
+        favicon = About.objects.all()[0].favicon
+
+    except IndexError:
+        pass
 
     return render_to_response('contact.html', locals())
 
 
 def category(request, category_url):
-    categories = Category.objects.all()
-    header_title = About.objects.all()[0].header_title 
-    header_twitter = About.objects.all()[0].header_twitter
-    header_linkedin = About.objects.all()[0].header_linkedin
-    header_github = About.objects.all()[0].header_github
+    try:
+        categories = Category.objects.all()
+        header_title = About.objects.all()[0].header_title 
+        header_twitter = About.objects.all()[0].header_twitter
+        header_linkedin = About.objects.all()[0].header_linkedin
+        header_github = About.objects.all()[0].header_github
 
-    footer_text = About.objects.all()[0].footer_text
-    footer_text_url = About.objects.all()[0].footer_text_url
-    footer_image   = About.objects.all()[0].footer_image
-    favicon   = About.objects.all()[0].favicon
+        footer_text = About.objects.all()[0].footer_text
+        footer_text_url = About.objects.all()[0].footer_text_url
+        footer_image   = About.objects.all()[0].footer_image
+        favicon = About.objects.all()[0].favicon
+
+    except IndexError:
+        pass
 
     category = get_object_or_404(Category, category_url=category_url)
-    return render_to_response('category.html', locals())
+    return render_to_response('blog/category.html', locals())
 
 
 
 def post_list(request):
-    categories = Category.objects.all()
-    header_title = About.objects.all()[0].header_title
-    header_twitter = About.objects.all()[0].header_twitter
-    header_linkedin = About.objects.all()[0].header_linkedin
-    header_github = About.objects.all()[0].header_github
+    try:
+        categories = Category.objects.all()
+        header_title = About.objects.all()[0].header_title
+        header_twitter = About.objects.all()[0].header_twitter
+        header_linkedin = About.objects.all()[0].header_linkedin
+        header_github = About.objects.all()[0].header_github
 
-    footer_text = About.objects.all()[0].footer_text
-    footer_text_url = About.objects.all()[0].footer_text_url
-    footer_image   = About.objects.all()[0].footer_image
-    favicon   = About.objects.all()[0].favicon  
+        footer_text = About.objects.all()[0].footer_text
+        footer_text_url = About.objects.all()[0].footer_text_url
+        footer_image   = About.objects.all()[0].footer_image
+        favicon   = About.objects.all()[0].favicon  
 
-    object_list = Post.objects.order_by('-creation_date')
+
+    except IndexError:
+        pass
+
+    object_list = Post.objects.all()
     paginator = Paginator(object_list , 3)
     page_request_var = 'page'
     page = request.GET.get( page_request_var )
@@ -110,36 +125,60 @@ def post_list(request):
         "title": "List",
         "page_request_var": page_request_var,
     }
-    return render_to_response('blog.html', locals())
+    return render_to_response('blog/blog.html', locals())
 
-@csrf_exempt
+
 def post_details(request, slug):
-    categories = Category.objects.all()
-    header_title = About.objects.all()[0].header_title
-    header_twitter = About.objects.all()[0].header_twitter
-    header_linkedin = About.objects.all()[0].header_linkedin
-    header_github = About.objects.all()[0].header_github
+    try:
+        categories = Category.objects.all()
+        header_title = About.objects.all()[0].header_title
+        header_twitter = About.objects.all()[0].header_twitter
+        header_linkedin = About.objects.all()[0].header_linkedin
+        header_github = About.objects.all()[0].header_github
 
-    footer_text = About.objects.all()[0].footer_text
-    footer_text_url = About.objects.all()[0].footer_text_url
-    footer_image   = About.objects.all()[0].footer_image
-    favicon   = About.objects.all()[0].favicon  
+        footer_text = About.objects.all()[0].footer_text
+        footer_text_url = About.objects.all()[0].footer_text_url
+        footer_image   = About.objects.all()[0].footer_image
+        favicon = About.objects.all()[0].favicon 
+
+    except IndexError:
+        pass
+
+    yazi = get_object_or_404(Post, slug=slug)
 
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
-            comment.slug = slug
+            comment.post = yazi
             comment.save()
+            messages.success(request, 'Yorumunuz Gönderildi.', extra_tags='alert-success')
             return redirect('/blog/%s/'%slug)
+        else:
+            messages.warning(request, 'Yorumunuz Gönderilemedi.', extra_tags='alert-danger')
     else:
         comment_form = CommentForm()
 
+    comments = Comment.objects.filter(published=True, post=yazi)
+    paginator = Paginator(comments , 5)
+    page_request_var = 'page'
+    page = request.GET.get( page_request_var )
 
-    comments = Comment.objects.filter(published=True).order_by('-created_date')
-    yazi = get_object_or_404(Post, slug=slug)
-    return render_to_response('post.html', locals())
+    try:
+        comments = paginator.page(page)
+    except PageNotAnInteger:
+        comments = paginator.page(1)
+    except(EmptyPage, InvalidPage):
+        comments = paginator.page(paginator.num_pages)
 
+    context= {
+        "comments": comments,
+        "title": "List",
+        "page_request_var": page_request_var,
+    }
+
+    
+    return render(request,'blog/post.html', locals())
 
 # HTTP Error 400
 def error404(request):

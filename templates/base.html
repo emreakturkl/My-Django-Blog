@@ -2,87 +2,48 @@
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<!--SEO-->
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial scale=1.0">
-        <meta name="author" content="Emre AKTÜRK">
-        <title>{% block title %}{% endblock %}</title>
-        <meta name="description" content="{% block description %}{% endblock %}"/>
-        <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
 
-        <!-- STYLE FILES -->
-        <link rel="shortcut icon" href="
+<head>
+    <!--SEO-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+    <meta name="author" content="Emre AKTÜRK">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}" />
+    <meta name="keywords" content="{% block keywords %}{% endblock %}" />
+
+    <!-- STYLE FILES -->
+    <link rel="shortcut icon" href="
         {% if favicon %} 
         	{{favicon.url}} 
         {% else %} 
         	{% static 'img/avatar.png' %} 
         {% endif %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/base_style.css'%}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/blog_style.css'%}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css'%}">
-        
-
-		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet"> 
-
-	</head>
-	<!-- BODY -->
-	<body>
-		<div class="container-fluit">
-			<div class="header">
-	            <div class="row">
-	            	<div class="col-xs-5 col-sm-7 col-md-7 col-lg-7 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 ">
-	            		 <h1>{{header_title |safe}}<span>|</span></h1>
-					</div>
-					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 ">
-						<div class="social">
-		                    <a href="{% url 'contact' %}"><img src="{% static 'img/mail.png' %}"></a>
-		                    <a href="{{header_twitter}}"><img src="{% static 'img/twitter.png' %}"></a>
-		                    <a href="{{header_linkedin}}"><img src="{% static 'img/linkedin.png' %}"></a>
-		                    <a href="{{header_github}}"><img src="{% static 'img/github.png' %}"></a>
-	                	</div>
-					</div>
-	            </div>
-            </div>
-
-            <div class="menu">
-            	<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
-	                <ul>
-	                    <li><a href="{% url 'home' %}">Anasayfa /</a></li>
-	                    <li><a href="{% url 'about' %}">Hakkımda /</a></li>
-	                    <li><a href="{% url 'blog' %}">Blog /</a></li>
-	                    {% for i in categories %}
-	                    	<li><a href="{% url 'category' category_url=i.category_url %}">{{ i.category_name }} /</a></li>
-	                    {% endfor%}
-
-	                </ul>
-                </div>
-            </div>
-
-			{% block content %}{% endblock %}
-            {% block comment %} {% endblock %}
-            {% block comment_show %} {% endblock %}
-
-        </div>
-
-        <footer class="footer">
-	      	<div class="container">
-	      		<p><a href="{{footer_text_url}}">{{footer_text |safe}}</a>
-            	<a href="{% url 'home' %}">
-            	<img src="
-            	{% if footer_image %} 
-		        	{{footer_image.url}}
-		        {% else %} 
-		        	{% static 'img/avatar.png' %} 
-		        {% endif %}" style="vertical-align:middle" width="40px" height="40x" ></a></p>
-	     	</div>
-    	</footer>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base_style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog_style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css'%}">
 
 
-	</body>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</head>
+<!-- BODY -->
+
+<body>
+    <div class="container-fluit">
+        {% include 'header.html'%} {% include 'messages.html' %} {% block content %} {% endblock %} {% block comment %} {% endblock %} {% block comment_show %} {% endblock %}
+    </div>
+
+    {% include 'footer.html' %}
+
+</body>
+
 </html>

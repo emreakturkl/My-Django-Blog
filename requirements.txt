@@ -1,3 +1,7 @@
-pip install django-ckeditor
-pip install pillow
-pip install  django-simple-captcha
+django==1.10
+django-ckeditor
+pillow
+django-cleanup
+django-crispy-forms
+django-recaptcha
+    
