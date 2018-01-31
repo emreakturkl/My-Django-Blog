@@ -1,7 +1,7 @@
 # Basic Django Blog
 
-virtualenv env
-pip install -r requirements.txt
+* virtualenv env
+* pip install -r requirements.txt
 
 Start django applications
 
